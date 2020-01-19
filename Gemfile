@@ -20,6 +20,7 @@ gem 'rack', '2.0.8'
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do
