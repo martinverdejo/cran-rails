@@ -1,4 +1,4 @@
-class BaseSidekiqWorker
+class BaseWorker
 
   include Sidekiq::Worker
 

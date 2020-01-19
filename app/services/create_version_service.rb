@@ -4,7 +4,7 @@ class CreateVersionService < BaseService
 
   def initialize(package_name, version)
     @package_name, @version = package_name, version
-    @package = Package.find_by(name: @package_name)
+    @package = Package.find_or_initialize_by(name: @package_name)
     @version = @package.versions.build(attribute_parser.version_attributes)
     @errors = ActiveModel::Errors.new(self)
   end
@@ -17,8 +17,8 @@ class CreateVersionService < BaseService
         attribute_parser.existing_authors.each { |person| @version.author_attributions.create!(person: person, attribution_type: 'author') }
         attribute_parser.existing_maintainers.each.each { |person| @version.maintainer_attributions.create!(person: person, attribution_type: 'maintainer') }
 
-        attribute_parser.new_authors.each { |person| @version.author_attributions.create!(person: Person.create!(person, attribution_type: 'author')) }
-        attribute_parser.new_maintainers.each { |person| @version.maintainer_attributions.create!(person: Person.create!(person, attribution_type: 'maintainer')) }
+        attribute_parser.new_authors.each { |person| @version.author_attributions.create!(person: Person.create!(person), attribution_type: 'author') }
+        attribute_parser.new_maintainers.each { |person| @version.maintainer_attributions.create!(person: Person.create!(person), attribution_type: 'maintainer') }
       end
     end
     errors.empty?

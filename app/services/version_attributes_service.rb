@@ -23,13 +23,13 @@ class VersionAttributesService < BaseService
 
   def new_authors
     description_author_attributes.map do |author|
-      author unless author[:name].in?(exsiting_author_names) || author[:email].in?(exsiting_emails)
+      author unless author[:name].in?(exsiting_author_names) || author[:email].in?(exsiting_author_emails)
     end.compact
   end
 
   def new_maintainers
     description_maintainer_attributes.map do |maintainer|
-      maintainer unless maintainer[:name].in?(exsiting_maintainer_names) || maintainer[:email].in?(exsiting_emails)
+      maintainer unless maintainer[:name].in?(exsiting_maintainer_names) || maintainer[:email].in?(exsiting_maintainer_emails)
     end.compact
   end
 

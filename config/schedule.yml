@@ -1,0 +1,4 @@
+index_reader_worker:
+  cron: "0 4 * * *" # at 12 pm SGT, 4 am UTC
+  class: "IndexReaderWorker"
+  queue: "default"

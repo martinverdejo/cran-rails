@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'treetop-dcf'
 gem 'zlib'
 gem 'sidekiq'
+gem 'sidekiq-cron'
 gem 'rack', '2.0.8'
 
 group :development, :test do
