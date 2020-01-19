@@ -2,9 +2,9 @@ class CreateVersionService < BaseService
 
   validate :package_exists
 
-  def initialize(package_name, version)
-    @package_name, @version = package_name, version
-    @package = Package.find_or_initialize_by(name: @package_name)
+  def initialize(name, version)
+    @name, @version = name, version
+    @package = Package.find_or_initialize_by(name: @name)
     @version = @package.versions.build(attribute_parser.version_attributes)
     @errors = ActiveModel::Errors.new(self)
   end
@@ -35,7 +35,7 @@ class CreateVersionService < BaseService
   end
 
   def description
-    @desciption ||= PackageService.describe(@package_name, @version)
+    @desciption ||= PackageService.describe(@name, @version)
   end
 
 end

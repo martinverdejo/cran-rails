@@ -1,5 +1,6 @@
 require 'rubygems/package'
 require 'open-uri'
+require 'dcf'
 
 class PackageService < BaseService
 
@@ -13,7 +14,8 @@ class PackageService < BaseService
   end
 
   def describe
-    YAML.load(description_text.gsub /\t/, '  ')
+    # YAML.load(description_text.gsub(/\t/, '  '))
+    Dcf.parse(description_text).first
   end
 
   private
