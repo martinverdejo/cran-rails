@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'treetop-dcf'
 gem 'zlib'
+gem 'sidekiq'
+gem 'rack', '2.0.8'
 
 group :development, :test do
   gem 'pry'
