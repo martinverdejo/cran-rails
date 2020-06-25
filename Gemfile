@@ -16,7 +16,7 @@ gem 'treetop-dcf'
 gem 'zlib'
 gem 'sidekiq'
 gem 'sidekiq-cron'
-gem 'rack', '2.0.8'
+gem 'rack', '2.1.4'
 
 group :development, :test do
   gem 'pry'
